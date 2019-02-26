@@ -1,0 +1,22 @@
+{
+  "name": "koa_study",
+  "version": "1.0.0",
+  "description": "koa2的学习和练习笔记",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/private-study/koa_study.git"
+  },
+  "author": "Mark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/private-study/koa_study/issues"
+  },
+  "homepage": "https://github.com/private-study/koa_study#readme",
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
+}
