@@ -1,11 +1,5 @@
 const parsePostData = require("../utils/parsePostData");
 const post = async ctx => {
-  console.log(11111111);
-
-  console.log(ctx.url);
-  console.log(ctx.method);
-  console.log(11111111);
-
   if (ctx.url === "/" && ctx.method === "GET") {
     // 当GET请求时候返回表单页面
     let html = `
@@ -24,7 +18,6 @@ const post = async ctx => {
     // 当POST请求的时候，解析POST表单里的数据，并显示出来
     let postData = await parsePostData(ctx);
     ctx.set("content-type", "text/html; charset=utf-8");
-    console.log(postData);
     ctx.body = `<div>${postData}</div>`;
   } else {
     // 其他请求显示404
