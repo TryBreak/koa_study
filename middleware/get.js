@@ -1,4 +1,4 @@
-const get = ctx => {
+const get = async (ctx, next) => {
   let url = ctx.url;
   // 从上下文的request对象中获取
   let request = ctx.request;
@@ -17,11 +17,7 @@ const get = ctx => {
   };
 
   ctx.body = param;
+  await next();
 };
 
-module.exports = () => {
-  return async (ctx, next) => {
-    get(ctx);
-    await next();
-  };
-};
+module.exports = get;
