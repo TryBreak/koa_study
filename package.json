@@ -19,6 +19,7 @@
   "homepage": "https://github.com/private-study/koa_study#readme",
   "dependencies": {
     "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0"
   }
 }

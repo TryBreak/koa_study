@@ -1,14 +1,15 @@
 const parsePostData = require("../utils/parsePostData");
 const post = async ctx => {
-  console.log(11111111111);
+  console.log(11111111);
+
   console.log(ctx.url);
   console.log(ctx.method);
-  console.log(1111111111);
+  console.log(11111111);
+
   if (ctx.url === "/" && ctx.method === "GET") {
     // 当GET请求时候返回表单页面
     let html = `
-      <h1>koa2 request post demo</h1>
-      <form method="POST" action="/">
+      <form method="post" action="/from">
         <p>userName</p>
         <input name="userName" /><br/>
         <p>nickName</p>
@@ -19,10 +20,12 @@ const post = async ctx => {
       </form>
     `;
     ctx.body = html;
-  } else if (ctx.url === "/" && ctx.method === "POST") {
+  } else if (ctx.url === "/from" && ctx.method === "POST") {
     // 当POST请求的时候，解析POST表单里的数据，并显示出来
     let postData = await parsePostData(ctx);
-    ctx.body = postData;
+    ctx.set("content-type", "text/html; charset=utf-8");
+    console.log(postData);
+    ctx.body = `<div>${postData}</div>`;
   } else {
     // 其他请求显示404
     ctx.body = "<h1>404！！！ o(╯□╰)o</h1>";
