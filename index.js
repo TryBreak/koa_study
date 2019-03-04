@@ -1,27 +1,38 @@
 const Koa = require("koa");
 const app = new Koa();
 
+//中间件写法
+const loggerAsync = require("./middleware/logger-async");
+app.use(loggerAsync());
+
+//默认返回
+app.use(async (ctx, next) => {
+  ctx.body = "hello koa2";
+  await next();
+});
+
+//返回路由地址
+app.use(async (ctx, next) => {
+  let url = ctx.request.url;
+  ctx.body = url;
+  await next();
+});
+
+//自定义路由
+const viewList = require("./middleware/viewList");
+app.use(viewList());
+
+//使用 koa-router
 const router = require("./middleware/router");
-
-// const loggerAsync = require("./middleware/logger-async");
-// const viewList = require("./middleware/viewList");
-
 app.use(router.routes()).use(router.allowedMethods());
-// app.use(loggerAsync());
 
-// app.use(async (ctx, next) => {
-//   console.log(11111111);
-//   ctx.body = "hello koa2";
-//   await next();
-// });
+//get 请求
+const get = require("./middleware/get");
+app.use(get());
 
-// app.use(async (ctx, next) => {
-//   let url = ctx.request.url;
-//   ctx.body = url;
-//   await next();
-// });
-
-// app.use(viewList());
+//post 请求
+// const post = require("./middleware/post");
+// app.use(post);
 
 app.listen(3000);
 console.log("[demo] start-quick is starting at port 3000");
