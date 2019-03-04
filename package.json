@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/private-study/koa_study#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "koa-static": "^5.0.0"
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.5"
   }
 }
