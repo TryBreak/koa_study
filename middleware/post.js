@@ -1,6 +1,9 @@
 const parsePostData = require("../utils/parsePostData");
 const post = async ctx => {
-  console.log(ctx.url === "/" && ctx.method === "GET");
+  console.log(11111111111);
+  console.log(ctx.url);
+  console.log(ctx.method);
+  console.log(1111111111);
   if (ctx.url === "/" && ctx.method === "GET") {
     // 当GET请求时候返回表单页面
     let html = `

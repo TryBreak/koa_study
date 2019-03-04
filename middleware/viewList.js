@@ -49,7 +49,10 @@ module.exports = () => {
   return async (ctx, next) => {
     let url = ctx.request.url;
     let html = await route(url);
+    ctx.set("content-type", "text/html; charset=utf-8");
     ctx.body = html;
+    console.log(ctx.request.header);
+
     await next();
   };
 };
