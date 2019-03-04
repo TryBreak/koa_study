@@ -40,9 +40,15 @@ app.use(bodyParser());
 // app.use(static);
 
 //koa-static中间件使用
-const koa_static = require("./middleware/koa_static");
+// const koa_static = require("./middleware/koa_static");
+// app.use(koa_static());
 
-app.use(koa_static());
+//使用模板引擎
+const views = require("./middleware/ejs");
+app.use(views());
+
+const index = require("./router/index");
+app.use(index());
 
 app.listen(3000);
 console.log("[demo] start-quick is starting at port 3000");
