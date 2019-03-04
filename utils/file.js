@@ -6,7 +6,7 @@ const fs = require("fs");
  * @return {string|binary}
  */
 function file(filePath) {
-  let content = fs.readFileSync(filePath, "binary");
+  let content = fs.readFileSync(filePath, "utf-8");
   return content;
 }
 
