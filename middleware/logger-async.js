@@ -1,6 +1,4 @@
 function log(ctx) {
-  console.log(22222222);
-
   console.log(ctx.method, ctx.header.host + ctx.url);
 }
 

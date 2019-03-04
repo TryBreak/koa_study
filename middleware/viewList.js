@@ -42,8 +42,6 @@ const route = async url => {
       break;
   }
   let html = await render(view);
-  console.log(html);
-
   return html;
 };
 
